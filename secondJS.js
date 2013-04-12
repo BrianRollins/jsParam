@@ -1,6 +1,6 @@
-var secondParams = jsParam('secondJS',true);
+var secondParams = jsParam('secondJS', true);
 
-$('#output').append('<h1>'+secondParams['name']+'</h1>');
+document.write('<h2>'+secondParams['name']+'</h2>');
 for (strName in secondParams) {
-	$('#output').append('<b>'+strName+'</b> / <em>'+ secondParams[strName] + '</em><br/>');
+	document.write('<b>'+strName+'</b> / <em>'+ secondParams[strName] + '</em><br/>');
 }

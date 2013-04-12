@@ -1,10 +1,13 @@
 jsParam allows developers to pass params via the src attribute on the Script tag (not the page's URL).
 
+Usage: 
+
+var paramArray = jsParam([script ID], [optional boolean for logging params.]);
+
 Example:
 <script src="someJavascript.js?first=Alpha&second=Beta&run=true&count=42&msg=This%20is%20a%20message" id="someJS"></script>
-
-Usage:
-var myParams = jsParam('someJS'); //Returns an array of params.
+var myParams = jsParam('someJS', true); //Returns an array of params and logs the params to the console.
+var myParams = jsParam('someJS'); //Returns an array of params but does not throw any logs.
 
 Script includes fixes to convert params to boolean or numbers, if needed. Also decodes URL encoding so you can pass spaces and special characters in your params.
 
