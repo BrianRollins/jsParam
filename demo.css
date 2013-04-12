@@ -1,0 +1,20 @@
+/*Demo CSS*/
+body {
+	font-family: Calibri, Verdana, sans-serif;
+	background-color:#E9D9B1;
+	color: #141927;
+}
+a {
+	color: #232E49;
+	text-decoration:none;	
+}
+a:hover {
+	text-decoration:underline;
+}
+
+h1, h2, h3, h4 {
+	border-bottom: 1px solid #D4C18F;
+	background: -webkit-linear-gradient(#A16F3E, #D4C18F);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+}
