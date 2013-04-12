@@ -1,6 +1,6 @@
-var firstParams = jsParam('firstJS', true);
+var firstParams = jsParam('firstJS',true);
 
-document.write('<h2>'+firstParams['name']+'</h2>');
+$('#output').append('<h1>'+firstParams['name']+'</h1>');
 for (strName in firstParams) {
-	document.write('<b>'+strName+'</b> / <em>'+ firstParams[strName] + '</em><br/>');
+	$('#output').append('<b>'+strName+'</b> / <em>'+ firstParams[strName] + '</em><br/>');
 }
