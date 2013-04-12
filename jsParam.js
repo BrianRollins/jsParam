@@ -3,11 +3,13 @@ var jsParam = function(sourceID, logParams) {
 		logParams = false;
 	}
 	if(sourceID.substring(0) != '#') {
-		sourceID = '#' + sourceID;
+		//sourceID = '#' + sourceID;
 	}
-	js = $(sourceID);
+	//var js = $(sourceID);
+	//var js = document.getElementById(sourceID);
+	
 	var params = [];
-	var parts = js.attr('src').split('?');
+	var parts = document.getElementById(sourceID).src.split('?');
 	if (typeof parts[1] !== 'undefined') {
 		parts = parts[1].split('&');
 		for(i=0;i<parts.length;i++) {
