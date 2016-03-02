@@ -1,20 +1,22 @@
 /*
-	Copyright 2013 by Brian Rollins.
+	Copyright 2013-2016 by Brian Rollins.
 	For the latest version, checkout https://github.com/BrianRollins/jsParam
 	Questions/Comments: me at brianrollins.com
+	Released under a Creative Commons Attribution 4.0 International License
+	http://creativecommons.org/licenses/by/4.0/
 */
 /**
 	Function jsParam
 	Params:
 		sourceID: (String) ID of the script tag you want examined for parameters. Do not use # before the ID.
 		logParams: (Boolean | Optional) Sends a log of the parameters and their types to the console.
-	Returns: Array (or null if no params are found); 
+	Returns: Array (or null if no params are found);
 */
 
-var jsParam = function(sourceID, logParams) {	
+var jsParam = function(sourceID, logParams) {
 	if (typeof logParams === 'undefined') {
 		logParams = false;
-	}	
+	}
 	var params = [];
 	var parts = document.getElementById(sourceID).src.split('?');
 	if (typeof parts[1] !== 'undefined') {
@@ -36,8 +38,8 @@ var jsParam = function(sourceID, logParams) {
 		}
 		if(logParams) {
 			console.log('*** jsParam ('+sourceID+') ***');
-			for(strName in params) {
-				var c = params[strName];			
+			for(var strName in params) {
+				var c = params[strName];
 				console.log(strName + " : " + c + " (" + typeof c + ")");
 			}
 		}
@@ -45,5 +47,5 @@ var jsParam = function(sourceID, logParams) {
 	} else {
 		//No Params found.
 		return null;
-	}	
+	}
 };
