@@ -23,19 +23,30 @@ var jsParam = function(sourceID, logParams) {
 		parts = parts[1].split('&');
 		for(i=0; i<parts.length; i++) {
 			var t = parts[i].split('=');
-			//Because everything comes in as a string, we're going to do some cleanup for Booleans and Numbers.
+			//Because everything comes in as a string, we're going to do some
+			//cleanup for Booleans, Numbers, and Arrays.
+
 			//Fix booleans
 			if (t[1] === "true") {
-				t[1] = true;
+				params[decodeURIComponent(t[0])] = true;
 			} else if (t[1] === "false") {
-				t[1] = false;
+				params[decodeURIComponent(t[0])] = false;
 			}
+
 			//Fix numbers
 			else if (t[1] == parseFloat(t[1])) {
-				t[1] = parseFloat(t[1]);
+				params[decodeURIComponent(t[0])] = parseFloat(t[1]);
 			}
-			params[decodeURIComponent(t[0])] = decodeURIComponent(t[1]); //Decode that ugly URI stuff.
-		}
+
+			//Fix arrays (has a pipe | in the string).
+			else if (t[1].indexOf('|') !== -1) {
+				params[decodeURIComponent(t[0])] = decodeURIComponent(t[1]).split('|');
+			}
+			//Everything else (Assume it's a string).
+			else {
+				params[decodeURIComponent(t[0])] = decodeURIComponent(t[1]); //Decode that ugly URI stuff.
+			}
+		} //end loop through params.
 		if(logParams) {
 			console.log('*** jsParam ('+sourceID+') ***');
 			for(var strName in params) {
@@ -45,7 +56,7 @@ var jsParam = function(sourceID, logParams) {
 		}
 		return params; //Array of params.
 	} else {
-		//No Params found.
+		//No params found.
 		return null;
 	}
 };

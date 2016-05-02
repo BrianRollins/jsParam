@@ -3,13 +3,24 @@
 <head>
 	<meta charset="UTF-8">
 	<title>jsParam Demo</title>
-	<link type="text/css" rel="stylesheet" href="demo.css"/>	
+	<link type="text/css" rel="stylesheet" href="demo.css"/>
 	<script src="jsParam.js"></script>
 </head>
 <body>
-	<h1>jsParam Demo</h1>	
-	<!--You must set an ID on your script tag for this to work -->
+	<h1>jsParam Demo</h1>
+	<!--
+	You must set an ID on your script tag for this to work.
+	-->
 	<script src="firstJS.js?name=The%20First%20Set%20of%20Params&first=alpha&second=beta&third=false&fourth=true&fifth=4.2"  id="firstJS"></script>
+	<!--
+	You can pass spaces (and other non-url-friendly characters by URI encoding them.)
+	%20 for space, etc.
+	See http://www.degraeve.com/reference/urlencoding.php for a good list of codes.
+	-->
 	<script src="secondJS.js?name=The%20Second%20Set%20of%20Params&first=One&second%20param=Two&third=true&fourth=false&fifth=2.4" 	id="secondJS"></script>
+	<!--
+	To pass arrays, simply divide up the param string with pipes (|).	
+	-->
+	<script src="thirdJS.js?name=The%20Third%20Set%20of%20Params&fruitArray=Apple|Banana|Carrot&carArray=Alfa%20Romero|Bently|Corvette|Dodge" 	id="thirdJS"></script>
 </body>
 </html>
